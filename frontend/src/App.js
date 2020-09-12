@@ -58,7 +58,7 @@ function App() {
     // }
     newEmail["draw"] = image;
     fetchFromServer(
-      "https://cyf-chat-server-express.herokuapp.com/messages",
+      "https://draw-app-bae.herokuapp.com/send",
       newEmail,
       "POST"
     );
