@@ -2,7 +2,6 @@
   text-align: center;
 }
 
-
 .App-header {
   min-height: 100vh;
   display: flex;
@@ -10,17 +9,24 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: black;
 }
 
 .App-header a {
   text-decoration: none;
-  color: grey;
-  background-color: yellow;
-  padding: 5px;
+  color: black;
+  background-color: #ffc107;
+  padding: 0.375rem 0.75rem;
   margin: 10px;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 canvas {
   border: 1px solid black;
+}
+
+label {
+  color: black;
 }
