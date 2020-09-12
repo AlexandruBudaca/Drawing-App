@@ -19,6 +19,7 @@ function App() {
     name: " ",
     email: "",
     subject: "",
+    toEmail: "",
     message: "",
     draw: "",
   });
@@ -193,7 +194,7 @@ function App() {
             onChange={handleOnChange}
             onSubmit={handleSubmit}
           />
-
+          {console.log(image)}
           <CanvasDraw
             ref={(CanvasDraw) => (saveableCanvas = CanvasDraw)}
             brushColor={brushColor}

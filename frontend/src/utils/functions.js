@@ -16,7 +16,7 @@ export function MyVerticallyCenteredModal(props) {
       </Modal.Header>
       <Modal.Body>
         <Form onSubmit={props.handleSubmit}>
-          <Form.Group controlId="formBasicPassword">
+          <Form.Group controlId="formBasicName">
             <Form.Label>Name</Form.Label>
             <Form.Control
               type="text"
@@ -25,12 +25,21 @@ export function MyVerticallyCenteredModal(props) {
               onChange={props.handleOnChange}
             />
           </Form.Group>
-          <Form.Group controlId="formBasicPassword">
+          <Form.Group controlId="formBasicSubject">
             <Form.Label>Subject</Form.Label>
             <Form.Control
               type="text"
               placeholder="Subject"
               name="subject"
+              onChange={props.handleOnChange}
+            />
+          </Form.Group>
+          <Form.Group controlId="formBasicToEmail">
+            <Form.Label>Send to another email</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Subject"
+              name="toEmail"
               onChange={props.handleOnChange}
             />
           </Form.Group>
