@@ -1,32 +1,34 @@
-.App {
-  text-align: center;
-}
-
-.App-header {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: black;
-}
-
-.App-header a {
-  text-decoration: none;
-  color: black;
-  background-color: #ffc107;
-  padding: 0.375rem 0.75rem;
-  margin: 10px;
-  border-radius: 0.25rem;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-
 canvas {
   border: 1px solid black;
 }
 
 label {
   color: black;
+}
+
+.navbar {
+  flex-direction: column !important;
+  align-items: flex-start;
+  position: absolute;
+  z-index: 1;
+}
+
+.navbar-nav {
+  height: 80vh;
+  flex-direction: column !important;
+  justify-content: center;
+  padding: 0;
+}
+
+
+.carousel,
+.carousel-item,
+.carousel-item.active {
+  height: 100vh;
+
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+  display: none;
 }
