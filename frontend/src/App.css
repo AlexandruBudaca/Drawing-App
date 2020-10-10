@@ -5,19 +5,13 @@ canvas {
 label {
   color: black;
 }
-
 .navbar {
-  flex-direction: column !important;
-  align-items: flex-start;
   position: absolute;
   z-index: 1;
+  width: 100%;
 }
-
 .navbar-nav {
-  height: 80vh;
-  flex-direction: column !important;
-  justify-content: center;
-  padding: 0;
+  align-items: center;
 }
 .nav-link a {
   color: white;
@@ -50,17 +44,28 @@ label {
   font-weight: bold;
   text-shadow: 2px 2px 5px black;
 }
-@media only screen and (max-width: 600px) {
+.navbar-brand img {
+  width: 70px;
+  height: 70px;
+}
+@media only screen and (min-width: 1024px) {
   .navbar {
-    display: flex;
-    position: relative;
-    flex-wrap: wrap;
-    flex-direction: row !important;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly !important;
+    height: 100%;
   }
+
   .navbar-nav {
-    height: 20%;
-    align-items: center;
+    flex-direction: column !important;
+    align-items: flex-start;
+  }
+  .navbar-nav .nav-link {
+    font-size: 1.1rem;
+    padding-top: 10px;
+  }
+  .navbar-brand img {
+    width: 90px;
+    height: 90px;
   }
 }
