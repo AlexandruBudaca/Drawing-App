@@ -9,13 +9,13 @@ const Home = () => {
   return (
     <Carousel>
       <Carousel.Item>
-        <img className="d-block w-100" src={room2} alt="First slide" />
+        <img className="d-block " src={room2} alt="First slide" />
       </Carousel.Item>
       <Carousel.Item>
-        <img className="d-block w-100" src={room} alt="Second slide" />
+        <img className="d-block " src={room} alt="Second slide" />
       </Carousel.Item>
       <Carousel.Item>
-        <img className="d-block w-100" src={room3} alt="Third slide" />
+        <img className="d-block " src={room3} alt="Third slide" />
       </Carousel.Item>
     </Carousel>
   );
