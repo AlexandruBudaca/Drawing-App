@@ -42,7 +42,7 @@ router.post("/send", (request, response) => {
       address: email,
     },
     replyTo: email,
-    to: ["alex.andrul10@gmail.com"],
+    to: [`${process.env.API_USER}`],
     subject: subject,
     html: message,
     attachments: [
