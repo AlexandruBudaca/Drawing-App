@@ -37,10 +37,7 @@ router.post("/send", (request, response) => {
   const draw = request.body.draw;
 
   let mail = {
-    from: {
-      name: name,
-      address: email,
-    },
+    from: `${name} ${email}`,
     replyTo: email,
     to: [`${process.env.API_USER}`],
     subject: subject,
