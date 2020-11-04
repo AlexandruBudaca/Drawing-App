@@ -2,9 +2,10 @@ var express = require("express");
 var router = express.Router();
 const nodemailer = require("nodemailer");
 const body = require("body-parser");
+var cors = require("cors");
 const app = express();
 app.use(body.json());
-
+app.use(cors());
 /* GET home page. */
 router.get("/", function (req, res, next) {
   res.send({ msg: "Welcome!" });
