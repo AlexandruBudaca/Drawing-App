@@ -78,9 +78,6 @@ router.post("/contact", (request, response) => {
     html: message,
   };
 
-  if (request.body.toEmail) {
-    mail.to.push(toEmail);
-  }
   transporter.sendMail(mail, (err, data) => {
     if (err) {
       response.json({
