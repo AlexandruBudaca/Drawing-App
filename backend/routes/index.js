@@ -66,4 +66,32 @@ router.post("/send", (request, response) => {
   });
 });
 
+router.post("/contact", (request, response) => {
+  const name = request.body.name;
+  const email = request.body.email;
+  const message = request.body.message;
+
+  let mail = {
+    from: `${name} ${email}`,
+    replyTo: email,
+    to: [`${process.env.API_USER}`],
+    html: message,
+  };
+
+  if (request.body.toEmail) {
+    mail.to.push(toEmail);
+  }
+  transporter.sendMail(mail, (err, data) => {
+    if (err) {
+      response.json({
+        msg: "fail",
+      });
+    } else {
+      response.json({
+        msg: "success",
+      });
+    }
+  });
+});
+
 module.exports = router;
