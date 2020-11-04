@@ -70,13 +70,24 @@ router.post("/send", (request, response) => {
 router.post("/contact", (request, response) => {
   const name = request.body.name;
   const email = request.body.email;
+  const subject = request.body.subject;
+  const toEmail = request.body.toEmail;
   const message = request.body.message;
+  const draw = request.body.draw;
 
   let mail = {
     from: `${name} ${email}`,
     replyTo: email,
     to: [`${process.env.API_USER}`],
+    subject: subject,
     html: message,
+    attachments: [
+      {
+        filename: "draw.jpg",
+        content: draw.split("base64,")[1],
+        encoding: "base64",
+      },
+    ],
   };
 
   transporter.sendMail(mail, (err, data) => {
