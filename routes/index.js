@@ -76,7 +76,6 @@ router.post("/contact", cors(), (request, response) => {
     from: `${name} ${email}`,
     replyTo: email,
     to: [`${process.env.API_USER}`],
-    subject: subject,
     html: message,
   };
   if (request.body.toEmail) {
