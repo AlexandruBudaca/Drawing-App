@@ -5,7 +5,7 @@ const body = require("body-parser");
 var cors = require("cors");
 const app = express();
 app.use(body.json());
-app.use(cors());
+
 /* GET home page. */
 router.get("/", function (req, res, next) {
   res.send({ msg: "Welcome!" });
@@ -29,7 +29,7 @@ transporter.verify((error, success) => {
   }
 });
 
-router.post("/send", (request, response) => {
+router.post("/send", cors(), (request, response) => {
   const name = request.body.name;
   const email = request.body.email;
   const subject = request.body.subject;
@@ -67,7 +67,7 @@ router.post("/send", (request, response) => {
   });
 });
 
-router.post("/contact", (request, response) => {
+router.post("/contact", cors(), (request, response) => {
   const name = request.body.name;
   const email = request.body.email;
   const message = request.body.message;
@@ -76,8 +76,12 @@ router.post("/contact", (request, response) => {
     from: `${name} ${email}`,
     replyTo: email,
     to: [`${process.env.API_USER}`],
+    subject: subject,
     html: message,
   };
+  if (request.body.toEmail) {
+    mail.to.push(toEmail);
+  }
 
   transporter.sendMail(mail, (err, data) => {
     if (err) {
