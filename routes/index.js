@@ -2,16 +2,10 @@ var express = require("express");
 var router = express.Router();
 const nodemailer = require("nodemailer");
 const body = require("body-parser");
-var cors = require("cors");
 const app = express();
+var cors = require("cors");
+app.use(cors());
 app.use(body.json());
-
-const issue2options = {
-  origin: true,
-  methods: ["POST"],
-  credentials: true,
-  maxAge: 3600,
-};
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
@@ -36,7 +30,7 @@ transporter.verify((error, success) => {
   }
 });
 
-router.post("/send", cors(issue2options), (request, response) => {
+router.post("/send", (request, response) => {
   const name = request.body.name;
   const email = request.body.email;
   const subject = request.body.subject;
@@ -74,7 +68,7 @@ router.post("/send", cors(issue2options), (request, response) => {
   });
 });
 
-router.post("/contact", cors(), (request, response) => {
+router.post("/contact", (request, response) => {
   const name = request.body.name;
   const email = request.body.email;
   const message = request.body.message;
