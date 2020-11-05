@@ -7,12 +7,13 @@ var cors = require("cors");
 app.use(cors());
 app.use(body.json());
 
-app.options("/send", function (req, res) {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "*");
-  res.setHeader("Access-Control-Allow-Headers", "*");
-  res.end();
-});
+var corsOptions = {
+  origin: "*",
+  optionsSuccessStatus: 200,
+};
+app.use(cors(corsOptions));
+app.use(express.json());
+
 /* GET home page. */
 router.get("/", function (req, res, next) {
   res.send({ msg: "Welcome!" });
