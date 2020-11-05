@@ -5,13 +5,13 @@ const body = require("body-parser");
 var cors = require("cors");
 const app = express();
 app.use(body.json());
-app.use(cors());
-app.options("*", cors());
 
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  next();
-});
+const issue2options = {
+  origin: true,
+  methods: ["POST"],
+  credentials: true,
+  maxAge: 3600,
+};
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
@@ -36,7 +36,7 @@ transporter.verify((error, success) => {
   }
 });
 
-router.post("/send", cors(), (request, response) => {
+router.post("/send", cors(issue2options), (request, response) => {
   const name = request.body.name;
   const email = request.body.email;
   const subject = request.body.subject;
