@@ -7,6 +7,12 @@ const app = express();
 app.use(body.json());
 app.use(cors());
 app.options("*", cors());
+
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
+});
+
 /* GET home page. */
 router.get("/", function (req, res, next) {
   res.send({ msg: "Welcome!" });
