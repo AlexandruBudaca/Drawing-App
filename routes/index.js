@@ -5,6 +5,7 @@ const body = require("body-parser");
 var cors = require("cors");
 const app = express();
 app.use(body.json());
+app.use(cors());
 app.options("*", cors());
 /* GET home page. */
 router.get("/", function (req, res, next) {
